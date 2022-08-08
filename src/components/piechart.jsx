@@ -5,8 +5,10 @@ class Piechart extends Component {
   constructor(props) {
     super(props);
 
+    let series = [43, 26, 31];
+
     this.state = {
-      series: [43, 26, 31],
+      series: series,
 
       options: {
         chart: {
@@ -17,7 +19,7 @@ class Piechart extends Component {
             breakpoint: 480,
             options: {
               chart: {
-                width: 200
+                size: 200
               },
               legend: {
                 position: "bottom"
@@ -25,13 +27,22 @@ class Piechart extends Component {
             }
           }
         ],
-        labels: ["Axie", "Pegaxy", "Other"],
-        dataLabels: { enabled: false },
+        labels: [
+          series[0] + "% <span style='color:#8D826C'>Axie</span>",
+          series[1] + "% <span style='color:#8D826C'>Pegaxy</span>",
+          series[2] + "% <span style='color:#8D826C'>Other</span>"
+        ],
+        dataLabels: {
+          enabled: false
+        },
         colors: ["#d4a858", "#a261ff", "#2dd2d2"],
+        stroke: {
+          show: false
+        },
         legend: {
           show: true,
           fontSize: "14px",
-          fontFamily: "Helvetica, Arial",
+          fontFamily: "Poppins",
           offsetX: 0,
           offsetY: 100,
           markers: {
@@ -44,7 +55,7 @@ class Piechart extends Component {
             offsetY: 1
           },
           labels: {
-            colors: ["#efe5d2"],
+            colors: ["#EFE5D2"],
             useSeriesColors: false
           },
           itemMargin: {
