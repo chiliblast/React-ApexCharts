@@ -1,46 +1,60 @@
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
 
-class Piechart extends Component {
+class Areachart extends Component {
   constructor(props) {
     super(props);
 
-    let series = [43, 26, 31];
-
     this.state = {
-      series: series,
-
+      series: [
+        {
+          name: "Admins",
+          data: [31, 40, 28, 51, 42, 109, 100]
+        },
+        {
+          name: "Managers",
+          data: [11, 32, 45, 32, 34, 52, 41]
+        },
+        {
+          name: "Players",
+          data: [4, 22, 65, 78, 30, 40, 50]
+        },
+        {
+          name: "Total",
+          data: [23, 16, 8, 60, 50, 47, 33]
+        }
+      ],
       options: {
         chart: {
-          type: "donut"
+          height: 350,
+          type: "area"
         },
-        responsive: [
-          {
-            breakpoint: 480,
-            options: {
-              chart: {
-                size: 200
-              },
-              legend: {
-                position: "bottom"
-              }
-            }
-          }
-        ],
-        labels: [
-          series[0] + "% <span style='color:#8D826C'>Axie</span>",
-          series[1] + "% <span style='color:#8D826C'>Pegaxy</span>",
-          series[2] + "% <span style='color:#8D826C'>Other</span>"
-        ],
         dataLabels: {
           enabled: false
         },
-        colors: ["#d4a858", "#a261ff", "#2dd2d2"],
+        colors: ["#88A9D8", "#D4A858", "#A261FF", "#34ABAB"],
         stroke: {
-          show: false
+          curve: "straight"
+        },
+        xaxis: {
+          type: "datetime",
+          categories: [
+            "2018-09-19T00:00:00.000Z",
+            "2018-09-19T01:30:00.000Z",
+            "2018-09-19T02:30:00.000Z",
+            "2018-09-19T03:30:00.000Z",
+            "2018-09-19T04:30:00.000Z",
+            "2018-09-19T05:30:00.000Z",
+            "2018-09-19T06:30:00.000Z"
+          ]
+        },
+        tooltip: {
+          x: {
+            format: "dd/MM/yy HH:mm"
+          }
         },
         title: {
-          text: "Population",
+          text: "Guild Population Growth & Distibution",
           align: "left",
           margin: 10,
           offsetX: 0,
@@ -58,15 +72,15 @@ class Piechart extends Component {
           fontFamily: "Poppins",
           fontWeight: 100,
           offsetX: 0,
-          offsetY: 100,
+          offsetY: 0,
           markers: {
-            radius: 1,
+            radius: 12,
             strokeWidth: 0,
             strokeColor: "#4f4f4f",
             width: 12,
             height: 12,
             offsetX: -5,
-            offsetY: 1
+            offsetY: -1
           },
           labels: {
             colors: ["#EFE5D2"],
@@ -87,11 +101,12 @@ class Piechart extends Component {
         <Chart
           options={this.state.options}
           series={this.state.series}
-          type="donut"
+          type="area"
+          height={300}
         />
       </div>
     );
   }
 }
 
-export default Piechart;
+export default Areachart;
