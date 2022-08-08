@@ -4,3 +4,6 @@ body {
   color: #efe5d2;
   font-family: "Poppins";
 }
+.apexcharts-theme-dark svg {
+  background: #262626 !important;
+}

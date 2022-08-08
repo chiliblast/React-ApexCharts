@@ -14,6 +14,9 @@ class Piechart extends Component {
         chart: {
           type: "donut"
         },
+        theme: {
+          mode: "dark"
+        },
         responsive: [
           {
             breakpoint: 480,

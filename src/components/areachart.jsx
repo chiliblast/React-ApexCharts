@@ -29,12 +29,21 @@ class Areachart extends Component {
           height: 350,
           type: "area"
         },
+        theme: {
+          mode: "dark"
+        },
         dataLabels: {
           enabled: false
         },
         colors: ["#88A9D8", "#D4A858", "#A261FF", "#34ABAB"],
         stroke: {
-          curve: "straight"
+          curve: "straight",
+          width: 2
+        },
+        grid: {
+          show: true,
+          borderColor: "#4f4f4f",
+          strokeDashArray: 20
         },
         xaxis: {
           type: "datetime",
