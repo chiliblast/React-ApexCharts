@@ -32,10 +32,24 @@ class Piechart extends Component {
           show: true,
           fontSize: "14px",
           fontFamily: "Helvetica, Arial",
+          offsetX: 0,
+          offsetY: 100,
           markers: {
             radius: 1,
             strokeWidth: 0,
-            strokeColor: "#4f4f4f"
+            strokeColor: "#4f4f4f",
+            width: 12,
+            height: 12,
+            offsetX: -5,
+            offsetY: 1
+          },
+          labels: {
+            colors: ["#efe5d2"],
+            useSeriesColors: false
+          },
+          itemMargin: {
+            horizontal: 10,
+            vertical: 10
           }
         }
       }
