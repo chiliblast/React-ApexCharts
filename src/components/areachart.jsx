@@ -113,7 +113,7 @@ class Areachart extends Component {
 
   render() {
     return (
-      <div class="rounded apexcharts-theme-dark p-2">
+      <div className="rounded apexcharts-theme-dark p-2">
         cxcvxcv
         <Chart
           options={this.state.options}

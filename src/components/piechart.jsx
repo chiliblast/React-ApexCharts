@@ -1,14 +1,31 @@
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
-
 class Piechart extends Component {
+
+ 
   constructor(props) {
     super(props);
 
-    let series = [43, 26, 31];
+    let _series = [43, 26, 31];
 
     this.state = {
-      series: series,
+      
+      series: _series,
+
+      data:{
+
+        type:'Population',
+        icon: require(`../assets/Multi-People-Ic.svg`).default,
+
+        series:[
+          {id:0,name:"Adimns",value:3},
+          {id:1,name:"Managers",value:5},
+          {id:2,name:"Players",value:120},
+          {id:3,name:"Unassigned",value:8}
+        ]
+      },
+
+
 
       options: {
         chart: {
@@ -31,9 +48,9 @@ class Piechart extends Component {
           }
         ],
         labels: [
-          series[0] + "% <span style='color:#8D826C'>Axie</span>",
-          series[1] + "% <span style='color:#8D826C'>Pegaxy</span>",
-          series[2] + "% <span style='color:#8D826C'>Other</span>"
+          _series[0] + "% <span style='color:#8D826C'>Axie</span>",
+          _series[1] + "% <span style='color:#8D826C'>Pegaxy</span>",
+          _series[2] + "% <span style='color:#8D826C'>Other</span>"
         ],
         dataLabels: {
           enabled: false
@@ -84,14 +101,29 @@ class Piechart extends Component {
     };
   }
 
+  getTotal(){
+    let total=0;
+    let series=this.state.data.series;
+    for(let i=0;i<series.length;i++){
+      total=total+series[i].value;
+    }
+    return total;
+  }
+
   render() {
     return (
-      <div class="rounded apexcharts-theme-dark p-2">
-        xzcz
+      <div className="rounded apexcharts-theme-dark p-2 row">
+        <div className="col">
+          <div style={{fontSize:14}}>Total {this.state.data.type}:</div>
+          <div><img style={{marginTop:-10,height:20}} src={this.state.data.icon} /><span style={{fontSize:21,marginLeft:10}}>{this.getTotal()}</span></div>
+          {this.state.data.series.map(series => <div key={series.id}>{series.name}: {series.value}</div>)}
+      
+        </div>
         <Chart
           options={this.state.options}
           series={this.state.series}
           type="donut"
+          className="col"
         />
       </div>
     );

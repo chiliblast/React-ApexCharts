@@ -3,6 +3,7 @@ body {
   background: #131314 !important;
   color: #efe5d2;
   font-family: "Poppins";
+  font-size: 11px;
 }
 .apexcharts-theme-dark {
   background: #262626 !important;
