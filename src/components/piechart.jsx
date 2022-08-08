@@ -86,7 +86,7 @@ class Piechart extends Component {
 
   render() {
     return (
-      <div class="rounded apexcharts-theme-dark">
+      <div class="rounded apexcharts-theme-dark p-2">
         xzcz
         <Chart
           options={this.state.options}

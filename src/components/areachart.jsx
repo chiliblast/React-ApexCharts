@@ -27,7 +27,14 @@ class Areachart extends Component {
       options: {
         chart: {
           height: 350,
-          type: "area"
+          type: "area",
+          background: "#fff",
+          zoom: {
+            enabled: false
+          },
+          toolbar: {
+            show: false
+          }
         },
         theme: {
           mode: "dark"
@@ -106,7 +113,7 @@ class Areachart extends Component {
 
   render() {
     return (
-      <div class="rounded apexcharts-theme-dark">
+      <div class="rounded apexcharts-theme-dark p-2">
         cxcvxcv
         <Chart
           options={this.state.options}
