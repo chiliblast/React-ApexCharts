@@ -12,3 +12,13 @@ body {
 .apexcharts-theme-dark svg {
   background: #262626 !important;
 }
+
+
+.custom-checkbox input:before{ content:""; display:inline-block; width:16px; height:16px; background:red; }
+.custom-checkbox input:checked:before { background:green; }
+
+/* images */
+.custom-checkbox input:before { background: url('./assets/Rectangle-3414.svg') #fff;}
+.custom-checkbox input:checked:before { background: url('./assets/Rectangle-3414.svg') #fff; }
+
+

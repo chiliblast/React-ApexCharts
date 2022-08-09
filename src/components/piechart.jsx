@@ -3,7 +3,7 @@ import Chart from "react-apexcharts";
 class Piechart extends Component {
 
  
-  constructor(props) {
+  constructor(props) {console.log(props)
     super(props);
 
     let _series = [43, 26, 31];
@@ -17,7 +17,7 @@ class Piechart extends Component {
         type:'Population',
         icon: require(`../assets/Multi-People-Ic.svg`).default,
 
-        series:[
+        field:[
           {id:0,name:"Adimns",value:3},
           {id:1,name:"Managers",value:5},
           {id:2,name:"Players",value:120},
@@ -29,12 +29,13 @@ class Piechart extends Component {
 
       options: {
         chart: {
-          type: "donut"
+          type: "donut",
+          height: 350        
         },
         theme: {
           mode: "dark"
         },
-        responsive: [
+        /*responsive: [
           {
             breakpoint: 480,
             options: {
@@ -46,11 +47,11 @@ class Piechart extends Component {
               }
             }
           }
-        ],
+        ],*/
         labels: [
-          _series[0] + "% <span style='color:#8D826C'>Axie</span>",
-          _series[1] + "% <span style='color:#8D826C'>Pegaxy</span>",
-          _series[2] + "% <span style='color:#8D826C'>Other</span>"
+          _series[0] + "% <span style='color:#8d826c'>Axie</span>",
+          _series[1] + "% <span style='color:#8d826c'>Pegaxy</span>",
+          _series[2] + "% <span style='color:#8d826c'>Other</span>"
         ],
         dataLabels: {
           enabled: false
@@ -62,23 +63,22 @@ class Piechart extends Component {
         title: {
           text: "Population",
           align: "left",
-          margin: 10,
-          offsetX: 0,
-          offsetY: 0,
+          margin: 0,
+          offsetX: 120,
+          offsetY: 10,
           floating: false,
           style: {
-            fontSize: "14px",
+            fontSize: "10px",
             fontFamily: "Poppins",
-            color: "#ffffff"
+            color: "#efe5d2"
           }
         },
         legend: {
           show: true,
-          fontSize: "11px",
+          fontSize: "10px",
           fontFamily: "Poppins",
-          fontWeight: 100,
           offsetX: 0,
-          offsetY: 100,
+          offsetY: 20,
           markers: {
             radius: 1,
             strokeWidth: 0,
@@ -94,7 +94,7 @@ class Piechart extends Component {
           },
           itemMargin: {
             horizontal: 10,
-            vertical: 10
+            vertical: 3
           }
         }
       }
@@ -103,27 +103,26 @@ class Piechart extends Component {
 
   getTotal(){
     let total=0;
-    let series=this.state.data.series;
-    for(let i=0;i<series.length;i++){
-      total=total+series[i].value;
+    let field=this.state.data.field;
+    for(let i=0;i<field.length;i++){
+      total=total+field[i].value;
     }
     return total;
   }
 
   render() {
     return (
-      <div className="rounded apexcharts-theme-dark p-2 row">
-        <div className="col">
+      <div className="rounded apexcharts-theme-dark p-1 m-1 row">
+        <div className="col-5">
           <div style={{fontSize:14}}>Total {this.state.data.type}:</div>
           <div><img style={{marginTop:-10,height:20}} src={this.state.data.icon} /><span style={{fontSize:21,marginLeft:10}}>{this.getTotal()}</span></div>
-          {this.state.data.series.map(series => <div key={series.id}>{series.name}: {series.value}</div>)}
-      
+          {this.state.data.field.map(field => <div key={field.id}><span style={{color:'#8d826c'}}>{field.name}:</span> {field.value}</div>)}
         </div>
         <Chart
           options={this.state.options}
           series={this.state.series}
           type="donut"
-          className="col"
+          className="col-7"
         />
       </div>
     );

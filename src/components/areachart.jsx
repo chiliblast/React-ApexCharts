@@ -26,9 +26,7 @@ class Areachart extends Component {
       ],
       options: {
         chart: {
-          height: 350,
-          type: "area",
-          background: "#fff",
+          type: "area",        
           zoom: {
             enabled: false
           },
@@ -79,7 +77,7 @@ class Areachart extends Component {
           style: {
             fontSize: "14px",
             fontFamily: "Poppins",
-            color: "#ffffff"
+            color: "#efe5d2"
           }
         },
         legend: {
@@ -113,13 +111,12 @@ class Areachart extends Component {
 
   render() {
     return (
-      <div className="rounded apexcharts-theme-dark p-2">
-        cxcvxcv
+      <div className="rounded apexcharts-theme-dark p-1 m-1">
         <Chart
           options={this.state.options}
           series={this.state.series}
           type="area"
-          height={300}
+          height={250}
         />
       </div>
     );
