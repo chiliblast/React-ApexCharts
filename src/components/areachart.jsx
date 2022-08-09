@@ -6,24 +6,7 @@ class Areachart extends Component {
 		super(props);
 
 		this.state = {
-			series: [
-				{
-					name: "Admins",
-					data: [31, 40, 28, 51, 42, 109, 100],
-				},
-				{
-					name: "Managers",
-					data: [11, 32, 45, 32, 34, 52, 41],
-				},
-				{
-					name: "Players",
-					data: [4, 22, 65, 78, 30, 40, 50],
-				},
-				{
-					name: "Total",
-					data: [23, 16, 8, 60, 50, 47, 33],
-				},
-			],
+			series: props.chart.series,
 			options: {
 				chart: {
 					type: "area",
@@ -111,13 +94,46 @@ class Areachart extends Component {
 
 	render() {
 		return (
-			<div className="rounded apexcharts-theme-dark p-1 m-1">
+			<div
+				className="areachart rounded apexcharts-theme-dark p-1 m-1"
+				style={{ position: "relative" }}
+			>
+				<div
+					style={{
+						position: "absolute",
+						right: 20,
+						top: 10,
+						zIndex: 1,
+						color: "#efe5d2",
+					}}
+				>
+					Year to Date&nbsp;&nbsp;
+					<img src={require(`../assets/Path-1963.png`).default} />
+				</div>
+
 				<Chart
 					options={this.state.options}
 					series={this.state.series}
 					type="area"
 					height={250}
 				/>
+
+				<div
+					style={{
+						position: "absolute",
+						right: 20,
+						bottom: 40,
+						zIndex: 1,
+						color: "#efe5d2",
+					}}
+				>
+					Export&nbsp;&nbsp;
+					<img
+						src={require(`../assets/signout-outline.svg`).default}
+						height={12}
+						style={{ marginTop: -5 }}
+					/>
+				</div>
 			</div>
 		);
 	}

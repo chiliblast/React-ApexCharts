@@ -44,7 +44,24 @@ class Main extends Component {
 						{ id: 3, name: "Unassigned", value: 8 },
 					],
 				},
-				series: [43, 26, 31],
+				series: [
+					{
+						name: "Admins",
+						data: [31, 40, 28, 51, 42, 109, 100],
+					},
+					{
+						name: "Managers",
+						data: [11, 32, 45, 32, 34, 52, 41],
+					},
+					{
+						name: "Players",
+						data: [4, 22, 65, 78, 30, 40, 50],
+					},
+					{
+						name: "Total",
+						data: [23, 16, 8, 60, 50, 47, 33],
+					},
+				],
 			},
 			{
 				data: {
@@ -55,7 +72,24 @@ class Main extends Component {
 						{ id: 2, name: "Others", value: 112544 },
 					],
 				},
-				series: [48, 32, 20],
+				series: [
+					{
+						name: "Game #1",
+						data: [3, 45, 32, 45, 87, 3, 23],
+					},
+					{
+						name: "Managers",
+						data: [3, 56, 67, 5, 66, 78, 22],
+					},
+					{
+						name: "Players",
+						data: [22, 56, 23, 11, 34, 5, 34],
+					},
+					{
+						name: "Total",
+						data: [32, 45, 23, 76, 34, 65, 23],
+					},
+				],
 			},
 		],
 	};
@@ -63,6 +97,9 @@ class Main extends Component {
 	render() {
 		return (
 			<div className="container">
+				<div className="mt-4 mb-4">
+					<a href="/faq">Next</a>
+				</div>
 				<div className="row">
 					<div className="col p-2">
 						<Piechart chart={this.state.piechart[0]} />

@@ -1,24 +1,88 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
 body {
-  background: #131314 !important;
-  color: #efe5d2;
-  font-family: "Poppins";
-  font-size: 11px;
+	background: #131314 !important;
+	color: #efe5d2;
+	font-family: "Poppins";
+	font-size: 11px;
 }
 .apexcharts-theme-dark {
-  background: #262626 !important;
+	background: #262626 !important;
 }
 
 .apexcharts-theme-dark svg {
-  background: #262626 !important;
+	background: #262626 !important;
 }
 
+a {
+	color: #efe5d2;
+	text-decoration: none;
+}
 
-.custom-checkbox input:before{ content:""; display:inline-block; width:16px; height:16px; background:red; }
-.custom-checkbox input:checked:before { background:green; }
+.accordion-item {
+	color: #5c5c5c;
+	border-bottom-style: dotted;
+	border-width: 1px;
+}
+
+.accordion-button:not(.collapsed) {
+	color: #ffffff;
+	background-color: #262626;
+}
+
+.accordion-button {
+	color: #efe5d2;
+	background-color: #131314;
+}
+
+.accordion {
+	--bs-accordion-bg: #262626;
+	--bs-accordion-border-color: none;
+	--bs-accordion-btn-active-icon: url(./assets/Arrows-Forward-icon.png);
+	--bs-accordion-btn-icon: url(./assets/Arrows-Forward-icon.png);
+	--bs-accordion-btn-icon-transform: rotate(90deg);
+	--bs-accordion-btn-icon-width: 1rem;
+}
+
+.accordion-button:after {
+	order: -1;
+	margin-left: 0;
+	margin-right: 0.5em;
+}
+
+.accordion-button:focus {
+	box-shadow: none;
+}
+
+.areachart .apexcharts-legend-series {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 25px;
+	background-color: #393939;
+}
+
+.areachart
+	.apexcharts-legend.apx-legend-position-bottom.apexcharts-align-center,
+.apexcharts-legend.apx-legend-position-top.apexcharts-align-center {
+	justify-content: left !important;
+}
+
+.custom-checkbox input:before {
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: red;
+}
+.custom-checkbox input:checked:before {
+	background: green;
+}
 
 /* images */
-.custom-checkbox input:before { background: url('./assets/Rectangle-3414.svg') #fff;}
-.custom-checkbox input:checked:before { background: url('./assets/Rectangle-3414.svg') #fff; }
-
-
+.custom-checkbox input:before {
+	background: url(./assets/Rectangle-3414.png) #262626;
+}
+.custom-checkbox input:checked:before {
+	background: url(./assets/Check-box.png) #262626;
+}
